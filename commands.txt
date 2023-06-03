@@ -1,0 +1,34 @@
+Para criar o topico 
+docker-compose exec broker kafka-topics --create \
+    --bootstrap-server broker:9092 \
+    --topic topico_teste \
+    --partitions 3 \
+    --replication-factor 1
+
+Listar todos os topico 
+docker-compose exec broker kafka-topics --list \
+    --bootstrap-server broker:9092
+
+para alterar o topico
+docker-compose exec broker kafka-topics --alter \
+    --bootstrap-server broker:9092 \
+    --topic topico_teste \
+    --partitions 10
+
+
+teste rapido no terminal
+
+executar consumer
+docker-compose exec broker kafka-console-consumer \
+    --bootstrap-server broker:9092 \
+    --topic topico_teste
+
+executar o producer
+docker-compose exec broker kafka-console-producer \
+    --bootstrap-server broker:9092 \
+    --topic topico_teste
+
+deletar um topico kafka
+docker-compose exec broker kafka-topics  --delete \
+    --bootstrap-server broker:9092 \
+    --topic topico_teste
